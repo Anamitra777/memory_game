@@ -1,0 +1,56 @@
+{{ block title }}Memorize This Number{{ endblock }}
+
+{{ block content }}
+<style>
+    body {
+        background: radial-gradient(circle at center, #e0f7fa, #b2ebf2);
+        font-family: 'Segoe UI', sans-serif;
+        text-align: center;
+        padding: 40px;
+        color: #2c3e50;
+    }
+
+    h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .number-box {
+        font-size: 3em;
+        font-weight: bold;
+        color: #1a237e;
+        background-color: #ffffffcc;
+        padding: 20px 40px;
+        border-radius: 12px;
+        display: inline-block;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        animation: pulse 1.5s infinite;
+    }
+
+    p {
+        font-size: 1.2em;
+        margin-top: 30px;
+        color: #37474f;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 0 10px rgba(26,35,126,0.3); }
+        50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(26,35,126,0.5); }
+        100% { transform: scale(1); box-shadow: 0 0 10px rgba(26,35,126,0.3); }
+    }
+</style>
+
+<h2>🔢 Round {{ player.round_number }} of {{ C.NUM_ROUNDS }}</h2>
+
+<div class="number-box">
+    {{ number }}
+</div>
+
+<p>This number will disappear in a few seconds... ⏳</p>
+{{ endblock }}

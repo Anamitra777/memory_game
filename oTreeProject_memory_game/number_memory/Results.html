@@ -1,0 +1,8 @@
+{{ block title }}Round Results{{ endblock }}
+{{ block content }}
+    <h2>{{ if correct }}✅ Correct!{{ else }}❌ Incorrect{{ endif }}</h2>
+    <p><strong>Original:</strong> {{ original }}</p>
+    <p><strong>Your Answer:</strong> {{ recalled }}</p>
+    <p><strong>Response Time:</strong> {{ time }} seconds</p>
+    {{ next_button }}
+{{ endblock }}

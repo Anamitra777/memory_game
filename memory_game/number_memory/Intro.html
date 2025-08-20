@@ -1,0 +1,54 @@
+{{ block title }}Welcome to the Number Memory Challenge{{ endblock }}
+
+{{ block content }}
+<style>
+    body {
+        background: linear-gradient(to right, #f0f4ff, #d0e0ff);
+        font-family: 'Segoe UI', sans-serif;
+        text-align: center;
+        padding: 40px;
+    }
+
+    h2 {
+        font-size: 2.5em;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    p {
+        font-size: 1.2em;
+        color: #34495e;
+        margin: 15px 0;
+    }
+
+    .intro-box {
+        background-color: #ffffffdd;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        display: inline-block;
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .emoji {
+        font-size: 3em;
+        margin-bottom: 10px;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="intro-box">
+    <div class="emoji">🧠</div>
+    <h2>Test Your Memory!</h2>
+    <p>You will be shown a number for a few seconds.</p>
+    <p>Your task is to memorize it and type it back as accurately as possible.</p>
+    <p>The numbers will get longer as you progress. Ready to challenge your brain?</p>
+    {{ next_button }}
+</div>
+{{ endblock }}

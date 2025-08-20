@@ -1,0 +1,59 @@
+{{ block title }}Game Over{{ endblock }}
+
+{{ block content }}
+<style>
+    body {
+        background: linear-gradient(to right, #fceabb, #f8b500);
+        font-family: 'Segoe UI', sans-serif;
+        text-align: center;
+        padding: 50px;
+        color: #4e342e;
+    }
+
+    h2 {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        color: #6d4c41;
+        animation: popIn 0.8s ease-out;
+    }
+
+    p {
+        font-size: 1.4em;
+        margin-top: 20px;
+        color: #5d4037;
+        animation: fadeIn 1.2s ease-in;
+    }
+
+    .score-box {
+        background-color: #fff8e1;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        display: inline-block;
+        max-width: 600px;
+        margin: auto;
+    }
+
+    @keyframes popIn {
+        0% { transform: scale(0.8); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+
+<div class="score-box">
+    <h2>🎉 Your Total Score: {{ total_score }} / {{ max_score }}</h2>
+
+    {% if total_score == max_score %}
+        <p>Perfect memory! You're a machine! 🤖</p>
+    {% elif total_score > 5 %}
+        <p>Great job! You have a strong memory. 💪</p>
+    {% else %}
+        <p>Keep practicing! Memory improves with training. 🧠</p>
+    {% endif %}
+</div>
+{{ endblock }}

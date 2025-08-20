@@ -1,0 +1,56 @@
+{{ block title }}Recall the Number{{ endblock }}
+
+{{ block content }}
+<style>
+    body {
+        background: linear-gradient(to right, #fff3e0, #ffe0b2);
+        font-family: 'Segoe UI', sans-serif;
+        text-align: center;
+        padding: 40px;
+        color: #4e342e;
+    }
+
+    h2 {
+        font-size: 2.2em;
+        margin-bottom: 20px;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+        color: #5d4037;
+    }
+
+    .recall-box {
+        background-color: #ffffffdd;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        display: inline-block;
+        max-width: 500px;
+        margin: auto;
+    }
+
+    input[type="text"] {
+        font-size: 1.5em;
+        padding: 10px;
+        width: 80%;
+        border: 2px solid #ffb74d;
+        border-radius: 8px;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="recall-box">
+    <h2>🧠 What was the number?</h2>
+    <p>Type the number you just saw below:</p>
+    {{ formfields }}
+    {{ next_button }}
+</div>
+{{ endblock }}

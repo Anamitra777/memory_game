@@ -1,0 +1,8 @@
+{{ block title }}Memorize This Number{{ endblock }}
+{{ block content }}
+    <h2>Round {{ player.round_number }} of {{ C.NUM_ROUNDS }}</h2>
+    <div style="font-size: 2em; margin-top: 20px;">
+        {{ number }}
+    </div>
+    <p>This number will disappear in a few seconds...</p>
+{{ endblock }}

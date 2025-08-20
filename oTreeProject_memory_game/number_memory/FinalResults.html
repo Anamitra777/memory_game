@@ -1,0 +1,11 @@
+{{ block title }}Game Over{{ endblock }}
+{{ block content }}
+    <h2>🎉 Your Total Score: {{ total_score }} / {{ max_score }}</h2>
+    {% if total_score == max_score %}
+        <p>Perfect memory! You're a machine! 🤖</p>
+    {% elif total_score > 5 %}
+        <p>Great job! You have a strong memory. 💪</p>
+    {% else %}
+        <p>Keep practicing! Memory improves with training. 🧠</p>
+    {% endif %}
+{{ endblock }}

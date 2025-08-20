@@ -1,0 +1,67 @@
+{{ block title }}Round Results{{ endblock }}
+
+{{ block content }}
+<style>
+    body {
+        background: linear-gradient(to right, #e3f2fd, #bbdefb);
+        font-family: 'Segoe UI', sans-serif;
+        text-align: center;
+        padding: 50px;
+        color: #263238;
+    }
+
+    .result-box {
+        background-color: #ffffffdd;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        display: inline-block;
+        max-width: 600px;
+        margin: auto;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    h2 {
+        font-size: 2.2em;
+        margin-bottom: 20px;
+    }
+
+    .correct {
+        color: #2e7d32;
+    }
+
+    .incorrect {
+        color: #c62828;
+    }
+
+    p {
+        font-size: 1.2em;
+        margin: 10px 0;
+    }
+
+    strong {
+        color: #37474f;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="result-box">
+    <h2 class="{% if correct %}correct{% else %}incorrect{% endif %}">
+    {% if correct %}
+        ✅ Correct!
+    {% else %}
+        ❌ Incorrect
+    {% endif %}
+</h2>
+
+    <p><strong>Original:</strong> {{ original }}</p>
+    <p><strong>Your Answer:</strong> {{ recalled }}</p>
+    <p><strong>Response Time:</strong> {{ time }} seconds</p>
+
+    {{ next_button }}
+</div>
+{{ endblock }}
