@@ -3,11 +3,11 @@ from otree.api import *
 import random
 import time
 
-class C(BaseConstants):
-    NAME_IN_URL = 'memory_game'
-    PLAYERS_PER_GROUP = None
-    NUM_ROUNDS = 10
-    INITIAL_LENGTH = 3
+class Constants(BaseConstants):
+    name_in_url = 'number_memory'
+    players_per_group = None
+    num_rounds = 10
+    initial_length = 3
 
 class Subsession(BaseSubsession):
     pass
@@ -39,7 +39,8 @@ class DisplayNumber(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
-        return dict(number=player.number_to_remember)
+        return dict(number=player.number_to_remember,
+                    num_rounds=Constants.num_rounds)
 
     # template_name = 'DisplayNumber.html'
 
@@ -69,11 +70,11 @@ class Results(Page):
 
 class FinalResults(Page):
     def is_displayed(player: Player):
-        return player.round_number == C.NUM_ROUNDS
+        return player.round_number == Constants.num_rounds
 
     def vars_for_template(player: Player):
         total_score = sum(p.round_score for p in player.in_all_rounds())
-        return dict(total_score=total_score, max_score=C.NUM_ROUNDS)
+        return dict(total_score=total_score, max_score=Constants.num_rounds)
 
     # template_name = 'FinalResults.html'
 
@@ -83,7 +84,7 @@ def generate_number(length):
 
 # Adaptive difficulty logic
 def get_display_length(player: Player):
-    base = C.INITIAL_LENGTH
+    base = Constants.initial_length
     correct_streak = all(p.round_score == 1 for p in player.in_previous_rounds()[-3:])
     return base + player.round_number - 1 + (1 if correct_streak else 0)
 
